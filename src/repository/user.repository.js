@@ -1,4 +1,4 @@
-const { Users } = require('../db');
+const { Users, Skills } = require('../db');
 
 async function createUserDB(user) {
     await Users.create(user);
@@ -6,4 +6,10 @@ async function createUserDB(user) {
     return data;
 }
 
-module.exports = { createUserDB };
+async function getUsersDB(){
+   const data = await Users.find();
+   return data;
+
+}
+
+module.exports = { createUserDB, getUsersDB};

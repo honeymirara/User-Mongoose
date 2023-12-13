@@ -1,4 +1,4 @@
-const { createUserDB } = require('../repository/user.repository');
+const { createUserDB, getUsersDB } = require('../repository/user.repository');
 
 async function createUser(user) {
     const data = await createUserDB(user);
@@ -6,4 +6,10 @@ async function createUser(user) {
     return data;
 }
 
-module.exports = { createUser };
+async function getUsers(){
+    const data = await getUsersDB();
+    if(!data) throw new Error('users not found');
+    return data;
+}
+
+module.exports = { createUser, getUsers };
