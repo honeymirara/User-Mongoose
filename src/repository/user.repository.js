@@ -6,10 +6,14 @@ async function createUserDB(user) {
     return data;
 }
 
-async function getUsersDB(){
-   const data = await Users.find();
-   return data;
-
+async function getUsersDB() {
+    const data = await Users.find();
+    return data;
 }
 
-module.exports = { createUserDB, getUsersDB};
+async function getUserByIdDB() {
+    const data = await Users.findOne();
+    return data;
+}
+
+module.exports = { createUserDB, getUsersDB, getUserByIdDB };

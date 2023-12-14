@@ -1,6 +1,6 @@
 const express = require('express');
 const { buildResponse } = require('../helper/buildResponse');
-const { createUser, getUsers } = require('../service/user.service');
+const { createUser, getUsers, getUserById } = require('../service/user.service');
 
 const route = express.Router();
 
@@ -19,6 +19,16 @@ route.get('/', async (req, res) => {
         buildResponse(res, 200, data)
     } catch (err) {
         buildResponse(res, 404, err.message);
+    }
+})
+
+route.get('/:id', async (req, res) => {
+    try {
+        const data = await getUserById(req.params.id, req.body)
+        buildResponse(res, 200, data);
+
+    } catch (err) {
+        buildResponse(res, 404, err.message)
     }
 })
 
