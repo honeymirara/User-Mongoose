@@ -1,4 +1,4 @@
-const { createUserDB, getUsersDB, getUserByIdDB } = require('../repository/user.repository');
+const { createUserDB, getUsersDB, getUserByIdDB, updateUserByIdDB, deleteUserByIdDB } = require('../repository/user.repository');
 
 async function createUser(user) {
     const data = await createUserDB(user);
@@ -18,4 +18,16 @@ async function getUserById() {
     return data;
 }
 
-module.exports = { createUser, getUsers, getUserById};
+async function updateUserById({id}, {users}) {
+    const data = await updateUserByIdDB({ id }, { users });
+    if (!data) throw new Error('not found data');
+    return data;
+}
+
+async function deleteUserById(_id) {
+    const data = await deleteUserByIdDB(_id)
+    if (!data) throw new Error('not fount data');
+    return data;
+}
+
+module.exports = { createUser, getUsers, getUserById, updateUserById, deleteUserById };

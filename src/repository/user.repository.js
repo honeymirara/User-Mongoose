@@ -16,4 +16,18 @@ async function getUserByIdDB() {
     return data;
 }
 
-module.exports = { createUserDB, getUsersDB, getUserByIdDB };
+async function updateUserByIdDB({ id }, { users }) {
+    await Users.updateOne({ id }, { users });
+    const data = await Users.find();
+    return data;
+}
+
+async function deleteUserByIdDB({ id }) {
+    await Users.deleteOne({ id })
+    const data = await Users.find();
+    return data;
+}
+
+
+
+module.exports = { createUserDB, getUsersDB, getUserByIdDB, updateUserByIdDB, deleteUserByIdDB };
