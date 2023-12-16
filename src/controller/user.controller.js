@@ -32,9 +32,9 @@ route.get('/:id', async (req, res) => {
     }
 })
 
-route.put('/:id', async (req, res) => {
+route.put('/:_id', async (req, res) => {
     try {
-        const data = await updateUserById(req.params.id, req.body);
+        const data = await updateUserById(req.params._id, req.body);
         buildResponse(res, 200, data)
     } catch (err) {
         buildResponse(res, 404, err.message);

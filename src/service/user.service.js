@@ -18,8 +18,8 @@ async function getUserById() {
     return data;
 }
 
-async function updateUserById({id}, {users}) {
-    const data = await updateUserByIdDB({ id }, { users });
+async function updateUserById(_id, users) {
+    const data = await updateUserByIdDB(_id, users);
     if (!data) throw new Error('not found data');
     return data;
 }
