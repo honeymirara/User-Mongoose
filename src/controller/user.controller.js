@@ -22,9 +22,9 @@ route.get('/', async (req, res) => {
     }
 })
 
-route.get('/:id', async (req, res) => {
+route.get('/:_id', async (req, res) => {
     try {
-        const data = await getUserById(req.params.id, req.body)
+        const data = await getUserById(req.params._id)
         buildResponse(res, 200, data);
 
     } catch (err) {

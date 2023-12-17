@@ -1,7 +1,7 @@
-const { Users, Skills } = require('../db');
+const { Users, ObjectId } = require('../db');
 
-async function createUserDB(user) {
-    await Users.create(user);
+async function createUserDB(users) {
+    await Users.create(users);
     const data = await Users.find();
     return data;
 }
@@ -11,16 +11,17 @@ async function getUsersDB() {
     return data;
 }
 
-async function getUserByIdDB() {
-    const data = await Users.findOne();
+async function getUserByIdDB(id) {
+    const data = await Users.findOne({ _id: new ObjectId(id) });
     return data;
 }
 
-async function updateUserByIdDB({ id }, { users }) {
-    await Users.updateOne({ id }, { users });
-    const data = await Users.find();
+
+async function updateUserByIdDB(_id, users) {
+    const data = await Users.findOneAndUpdate({ _id: new ObjectId(_id) }, { $set: users }, { new: true });
     return data;
 }
+
 
 async function deleteUserByIdDB({ id }) {
     await Users.deleteOne({ id })

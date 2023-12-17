@@ -2,9 +2,9 @@ const express = require('express');
 const {buildResponse} = require('../helper/buildResponse');
 const {createSkill} = require('../service/skills.service');
 
-const route = express.Router();
+const skills = express.Router();
 
-route.post('/', async (req, res) => {
+skills.post('/', async (req, res) => {
     try {
         const data = await createSkill(req.body)
         buildResponse(res, 200, data)
