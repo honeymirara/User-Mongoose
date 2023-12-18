@@ -24,8 +24,7 @@ async function updateUserByIdDB(_id, users) {
 
 
 async function deleteUserByIdDB({ id }) {
-    await Users.deleteOne({ id })
-    const data = await Users.find();
+    const data = await Users.findOneAndDelete({ id })
     return data;
 }
 
