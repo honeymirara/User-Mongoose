@@ -1,4 +1,4 @@
-const {createSkillsDB} = require('../repository/skills.repository');
+const { createSkillsDB, getSkillsDB } = require('../repository/skills.repository');
 
 async function createSkill(skills) {
     const data = await createSkillsDB(skills);
@@ -6,4 +6,10 @@ async function createSkill(skills) {
     return data;
 }
 
-module.exports = {createSkill}
+async function getSkills() {
+    const data = await getSkillsDB();
+    if (!data) throw new Error('data is not found');
+    return data;
+}
+
+module.exports = { createSkill, getSkills}

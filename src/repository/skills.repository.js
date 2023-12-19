@@ -1,4 +1,4 @@
-const { Skills } = require('../db');
+const { Skills, ObjectId } = require('../db');
 
 async function createSkillsDB(skills) {
     await Skills.create(skills);
@@ -6,4 +6,9 @@ async function createSkillsDB(skills) {
     return data;
 }
 
-module.exports = { createSkillsDB };
+async function getSkillsDB(){
+    const data = await Skills.find();
+    return data;
+}
+
+module.exports = { createSkillsDB, getSkillsDB };

@@ -1,7 +1,7 @@
 const { createUserDB, getUsersDB, getUserByIdDB, updateUserByIdDB, deleteUserByIdDB, createSkillsDB} = require('../repository/user.repository');
 
-async function createUser(user) {
-    const data = await createUserDB(user);
+async function createUser(users) {
+    const data = await createUserDB(users);
     if (!data) throw new Error('does not exists');
     return data;
 }
