@@ -6,9 +6,14 @@ async function createSkillsDB(skills) {
     return data;
 }
 
-async function getSkillsDB(){
+async function getSkillsDB() {
     const data = await Skills.find();
     return data;
 }
 
-module.exports = { createSkillsDB, getSkillsDB };
+async function getSkillByIdDB(id) {
+    const data = await Skills.findOne({ _id: new ObjectId(id) })
+    return data;
+}
+
+module.exports = { createSkillsDB, getSkillsDB, getSkillByIdDB};
