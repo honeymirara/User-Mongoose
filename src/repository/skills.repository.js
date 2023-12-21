@@ -16,4 +16,9 @@ async function getSkillByIdDB(id) {
     return data;
 }
 
-module.exports = { createSkillsDB, getSkillsDB, getSkillByIdDB};
+async function updateSkillDB(_id, skills) {
+    const data = await Skills.findByIdAndUpdate({ _id: new ObjectId(_id) }, { $set: skills }, { new: true })
+    return data;
+}
+
+module.exports = { createSkillsDB, getSkillsDB, getSkillByIdDB, updateSkillDB };
