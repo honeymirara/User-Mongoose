@@ -1,6 +1,6 @@
 const express = require('express');
 const { buildResponse } = require('../helper/buildResponse');
-const { createSkill, getSkills, getSkillById, updateSkill } = require('../service/skills.service');
+const { createSkill, getSkills, getSkillById, updateSkill, deleteSkill } = require('../service/skills.service');
 
 const skills = express.Router();
 
@@ -35,6 +35,15 @@ skills.get('/:id', async (req, res) => {
 skills.put('/:_id', async (req, res) => {
     try {
         const data = await updateSkill(req.params._id, req.body)
+        buildResponse(res, 200, data)
+    } catch (err) {
+        buildResponse(res, 404, err.mesasge)
+    }
+})
+
+skills.delete('/:_id', async (req, res) => {
+    try {
+        const data = await deleteSkill(req.params._id)
         buildResponse(res, 200, data)
     } catch (err) {
         buildResponse(res, 404, err.mesasge)

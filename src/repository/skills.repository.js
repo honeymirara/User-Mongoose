@@ -21,4 +21,9 @@ async function updateSkillDB(_id, skills) {
     return data;
 }
 
-module.exports = { createSkillsDB, getSkillsDB, getSkillByIdDB, updateSkillDB };
+async function deleteSkillDB(id){
+    const data = await Skills.findByIdAndDelete({ _id: new ObjectId(id) })
+    return data;
+}
+
+module.exports = { createSkillsDB, getSkillsDB, getSkillByIdDB, updateSkillDB, deleteSkillDB };
