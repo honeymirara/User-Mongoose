@@ -17,7 +17,8 @@ bash
 Copy code
 cd <project_directory>
 npm install
-Set up your MongoDB connection:
+
+2. Set up your MongoDB connection:
 
 Create a .env file in the root of your project.
 
@@ -26,7 +27,8 @@ Add the following line to the .env file, replacing <your_mongodb_uri> with your 
 env
 Copy code
 MONGODB_URI=<your_mongodb_uri>
-Start the server:
+
+3. Start the server:
 
 bash
 Copy code
