@@ -14,14 +14,12 @@ This Express server facilitates CRUD operations on users and their associated sk
       cd <project_directory>
       npm install
 4. Set up your MongoDB connection:
-
-Create a .env file in the root of your project.
+   Create a .env file in the root of your project.
 Add the following line to the .env file, replacing <your_mongodb_uri> with your MongoDB URI:
+      ```bash
+      MONGODB_URI=<your_mongodb_uri>
 
-    ```bash
-     MONGODB_URI=<your_mongodb_uri>
-
-4. Start the server:
+5. Start the server:
 
    ```bash
     nodemon index
