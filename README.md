@@ -7,14 +7,13 @@ This Express server facilitates CRUD operations on users and their associated sk
 ## Getting Started
 
 1. Clone the repository:
-
    ```bash
    git clone <repository_url>
-2. Install dependencies:
+3. Install dependencies:
       ```bash
       cd <project_directory>
       npm install
-3. Set up your MongoDB connection:
+4. Set up your MongoDB connection:
 
 Create a .env file in the root of your project.
 Add the following line to the .env file, replacing <your_mongodb_uri> with your MongoDB URI:
