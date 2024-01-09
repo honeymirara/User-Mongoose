@@ -4,15 +4,6 @@ const { createUser, getUsers, getUserById, updateUserById, deleteUserById} = req
 
 const route = express.Router();
 
-{
-
-    "name": "HHHH",
-    "surname": "Falei",
-    "email": "august3th@mail.ru",
-    "password": "6",
-    "age": 3
-  
-}
 
 route.get('/', async (req, res) => {
     try {
